@@ -1,0 +1,15 @@
+<h2>SUPWITCHU HOMEGIRL/STORE MANAGER?</h2>
+
+<form action="/add_product" method="post">
+  <label for="product_name">Name:</label>
+  <input id="product_name" name="product_name" type="text">
+  <label for="product_price">Price:</label>
+  <input id="product_price" name="product_price" type="text">
+  <label for="product_description">Description:</label>
+  <textarea id="product_description" name="product_description" type="text" rows="3"></textarea>
+  <button type="submit">Add product</button>
+</form>
+
+<% @products.each() do |product| %>
+  <a href="/products/<%= product.id() %>"><%= product.name() %></a><br />
+<% end %>
