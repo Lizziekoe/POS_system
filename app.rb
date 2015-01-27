@@ -15,7 +15,7 @@ end
 post('/add_product') do
   product_name = params.fetch("product_name")
   product_description = params.fetch("product_description")
-  product_price = params.fetch("product_price")
+  product_price = params.fetch("product_price").to_i()
   product = Product.create({:name => product_name, :description => product_description, :price => product_price})
   redirect ("/")
 end
@@ -23,4 +23,20 @@ end
 get('/products/:id') do
   @product = Product.find(params.fetch("id").to_i())
   erb(:product)
+end
+
+patch('/product/:id') do
+  product_name = params.fetch("product_name")
+  product_price = params.fetch("product_price").to_i()
+  product_description = params.fetch("product_description")
+  @product = Product.find(params.fetch("id").to_i())
+  @product.update({:name => product_name, :description => product_description, :price => product_price})
+  erb(:product)
+end
+
+delete('/product_delete/:id') do
+  @product = Product.find(params.fetch("id").to_i())
+  @product.delete()
+  @products = Product.all()
+  erb(:index)
 end

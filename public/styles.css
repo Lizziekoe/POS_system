@@ -1,0 +1,10 @@
+body {
+  font-family: 'Lora', serif;
+  background-image: url("img/background.jpg")
+}
+
+.container {
+  background-color: white;
+  opacity: 0.8;
+  margin: 10%;
+}
