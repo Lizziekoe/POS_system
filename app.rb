@@ -40,3 +40,19 @@ delete('/product_delete/:id') do
   @products = Product.all()
   erb(:index)
 end
+
+get('/customer') do
+  @products = Product.all()
+  erb(:customer)
+end
+
+post("/purchase") do
+  product_ids = params.fetch("product_ids")
+  new_array = []
+  product_ids.each() do |id|
+    new_array.push(id.to_i())
+  end
+  customer_name = params.fetch("customer")
+  customer = Purchase.create({:customer => customer_name, :product_ids => new_array})
+  redirect ("/")
+end

@@ -1,0 +1,19 @@
+<% if @products.any?() %>
+  <form action="/purchase"  method="post">
+    <label for="customer">Name:</label>
+    <input id="customer" name="customer" type="text">
+
+
+    <% @products.each() do |product| %>
+      <div class = "checkbox">
+        <label>
+          <input type="checkbox" name="product_ids[]" value="<%= product.id() %>"><%= product.name() %>
+        </label>
+      </div>
+    <% end %>
+
+
+    <button type="submit">Add your purchase!</button>
+  </form>
+
+<% end %>

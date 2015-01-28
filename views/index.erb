@@ -14,7 +14,7 @@
 
   <label for="product_description">Description:</label>
   <textarea id="product_description" name="product_description" type="text" rows="3"></textarea>
-  
+
   <br />
 
   <button type="submit">Add product</button>
@@ -23,3 +23,5 @@
 <% @products.each() do |product| %>
   <a href="/products/<%= product.id() %>"><%= product.name() %></a><br />
 <% end %>
+
+<button type="submit"><a href="/customer">Customer?</a></button>
